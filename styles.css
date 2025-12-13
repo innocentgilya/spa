@@ -921,3 +921,447 @@ nav {
         font-size: 1.2rem;
     }
 }
+
+/*-----what app------*/
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 9999; /* Above everything */
+}
+
+.whatsapp-float {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px 12px 15px;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: floatPulse 2s ease-in-out infinite;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    min-width: 150px;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+    background: linear-gradient(135deg, #1DA851 0%, #25D366 100%);
+}
+
+/* WhatsApp Icon */
+.whatsapp-icon {
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #25D366;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover .whatsapp-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* WhatsApp Text */
+.whatsapp-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+/* Pulsing Animation */
+@keyframes floatPulse {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+    }
+}
+
+/* Optional: Notification Badge */
+.whatsapp-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--primary);
+    color: var(--dark);
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    animation: badgePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        left: 15px;
+        bottom: 15px;
+    }
+    
+    .whatsapp-float {
+        padding: 10px 15px 10px 10px;
+        min-width: 50px; /* Collapse to icon-only on very small screens */
+    }
+    
+    .whatsapp-text {
+        display: block; /* Show text by default */
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-whatsapp {
+        left: 10px;
+        bottom: 10px;
+    }
+    
+    .whatsapp-float {
+        min-width: auto;
+        width: 50px; /* Icon only on very small screens */
+        height: 50px;
+        padding: 0;
+        justify-content: center;
+    }
+    
+    .whatsapp-text {
+        display: none; /* Hide text on very small screens */
+    }
+    
+    .whatsapp-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+}
+
+/* For tablets and medium screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .floating-whatsapp {
+        left: 25px;
+        bottom: 25px;
+    }
+}
+
+/* Optional: Hide on specific pages if needed */
+.floating-whatsapp.hidden {
+    display: none;
+}
+
+/*-----footer-----/
+/* Footer Section */
+.footer {
+    background-color: #1a1a1a;
+    color: var(--white);
+    padding: 60px 5% 30px;
+    margin-top: 80px;
+    border-top: 3px solid var(--primary);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+/* Footer Sections */
+.footer-section {
+    padding: 0 15px;
+}
+
+.footer-logo h3 {
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.footer-logo p {
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.contact-item i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-top: 3px;
+    min-width: 20px;
+}
+
+.contact-label {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 3px;
+    font-weight: 300;
+}
+
+.contact-item a,
+.contact-item span {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--primary);
+}
+
+/* Social Media */
+.footer-section h4 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(189, 142, 45, 0.3);
+    transform: translateX(5px);
+}
+
+.social-link.instagram:hover {
+    color: #E4405F;
+}
+
+.social-link.tiktok:hover {
+    color: #69C9D0;
+}
+
+.social-link i {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.social-link.social-handle {
+    background: rgba(189, 142, 45, 0.1);
+    border-color: rgba(189, 142, 45, 0.2);
+}
+
+.social-link.social-handle:hover {
+    background: rgba(189, 142, 45, 0.2);
+    color: var(--primary);
+}
+
+/* Booking Info */
+.booking-info {
+    margin-top: 30px;
+}
+
+.booking-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.booking-method {
+    background: rgba(189, 142, 45, 0.15);
+    color: var(--primary);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(189, 142, 45, 0.3);
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+}
+
+.footer-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    padding-left: 10px;
+}
+
+.footer-links a:hover::before {
+    width: 100%;
+}
+
+/* Hours Info */
+.hours-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.hours-info p::before {
+    content: '•';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    color: var(--primary) !important;
+    font-size: 0.8rem !important;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer {
+        padding: 50px 20px 25px;
+        margin-top: 60px;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-section {
+        padding: 0;
+    }
+    
+    .social-link {
+        padding: 8px 12px;
+    }
+    
+    .booking-methods {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo h3 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-item {
+        gap: 12px;
+    }
+    
+    .social-link span {
+        font-size: 0.9rem;
+    }
+}
